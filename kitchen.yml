@@ -11,6 +11,7 @@ driver:
 
 provisioner:
   name: chef_zero
+  always_update_cookbooks: true
 
   ## product_name and product_version specifies a specific Chef product and version to install.
   ## see the Chef documentation for more details: https://docs.chef.io/config_yml_kitchen.html
@@ -21,8 +22,10 @@ verifier:
   name: inspec
 
 platforms:
-  - name: ubuntu-18.04
-  - name: centos-7
+  - name: ubuntu-16.04
+    driver:
+    box: ubuntu/xenial64
+#  - name: centos-7
 
 suites:
   - name: default
